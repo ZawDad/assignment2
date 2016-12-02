@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\UserProfile */
 
-//$this->title = $model->full_name.'\'s'.' Profile';
-$this->title = $model->id;
+$this->title = $model->full_name.'\'s'.' Profile';
+//$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'User Profiles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -17,7 +17,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php 
     if($model->profile_picture == NULL){
+        echo '<div class="im" style="padding-bottom:2px; margin: 0 auto;">';
         echo '<img src="images/aw.png" width="190px">';
+        echo '</div>';
     }else{
         echo '<div class="im" style="padding-bottom:5px;">';
         echo '<img src="'.\Yii::$app->request->BaseUrl.'/'.$model->profile_picture.'" width="190px">';
@@ -47,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'industry',
             'location',
             'about_me:ntext',
-            'profile_picture',
+            //'profile_picture',
             'professional_title',
             'career_level',
             'communication_level',

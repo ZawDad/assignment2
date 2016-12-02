@@ -121,7 +121,7 @@ class UserProfileController extends Controller
     /**
     * Deletes profile pictures 
     */
-    public function actionDeleteprofile_picture($id)
+    public function actionErase($id)
     {
         $profile_picture = UserProfile::find()->where(['id'=>$id])->one()->profile_picture;
         if($profile_picture){

@@ -7,12 +7,14 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\UserProfileSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User Profiles';
+$this->title = 'USER  PROFILES';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-profile-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<p align="center";><img src="images/aw.png" style="height:70px;"> APPLIED WEB <strong>Development</strong></p>
+
+    <h1 align="center";><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
