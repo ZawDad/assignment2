@@ -95,16 +95,20 @@ class UserProfileController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
             $model->file = UploadedFile::getInstance($model, 'file');
             if($model->file){
                 $imagepath = 'uploads/registration/';
                 $model->profile_picture = $imagepath .rand(10,100).$model->file->name;
             }
+
+            if($model->save()){
                 if($model->file){
                     $model->file->saveAs($model->profile_picture);
+                    return $this->redirect(['view', 'id' => $model->id]);
                 }
                 return $this->redirect(['view', 'id' => $model->id]);
+            }
             
             
         } else {

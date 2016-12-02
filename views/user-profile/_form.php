@@ -64,7 +64,7 @@ use yii\bootstrap\ActiveForm;
 if ($model->profile_picture){
     echo '<div class="im" style="padding-left:12em;">';
     echo '<img src="'.\Yii::$app->request->BaseUrl.'/'.$model->profile_picture.'" width="90px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-    echo Html::a('Delete Profile Picture', ['registration/deleteprofile_picture', 'id'=>$model->id], ['class'=>'btn btn-danger']).'</br>';
+    echo Html::a('Delete Profile Picture', ['userprofile/deleteprofile_picture', 'id'=>$model->id], ['class'=>'btn btn-danger']).'</br>';
     echo '</div>';
 }
 ?>

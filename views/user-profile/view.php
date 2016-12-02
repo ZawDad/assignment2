@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\UserProfile */
 
-$this->title = $model->full_name.'\'s'.' Profile';
-//$this->title = $model->id;
+//$this->title = $model->full_name.'\'s'.' Profile';
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'User Profiles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -16,9 +16,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php 
-        echo '<img src="'.\Yii::$app->request->BaseUrl.'/'.$model->profile_picture.'" width="190px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-        echo '</div>';
+    if($model->profile_picture == NULL){
+        echo '<img src="images/aw.png" width="190px">';
+    }else{
+        echo '<div class="im" style="padding-bottom:5px;">';
+        echo '<img src="'.\Yii::$app->request->BaseUrl.'/'.$model->profile_picture.'" width="190px">';
+        echo '</div>';}
     ?>
+
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -42,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'industry',
             'location',
             'about_me:ntext',
-            //'profile_picture',
+            'profile_picture',
             'professional_title',
             'career_level',
             'communication_level',
