@@ -7,6 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\UserProfileSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+
 $this->title = 'USER  PROFILES';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -26,15 +27,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
+            [
+                 'attribute' => ' ',
+                     'format' => 'raw',
+                     'value' => function ($model) {
+                        if ($model->profile_picture!='')
+                          return '<img src="'.\Yii::$app->request->BaseUrl. '/'.$model->profile_picture.'" width="50px" height="auto">'; else return 'no image';
+                     },
+            ],
+
             'id',
             'full_name',
             'gender',
             'date_of_birth',
-            'years_of_experience',
+            //'years_of_experience',
             // 'industry',
             // 'location',
             // 'about_me:ntext',
-            // 'profile_picture',
+            //'profile_picture',
             // 'professional_title',
             // 'career_level',
             // 'communication_level',

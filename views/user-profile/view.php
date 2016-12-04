@@ -7,7 +7,6 @@ use yii\widgets\DetailView;
 /* @var $model app\models\UserProfile */
 
 $this->title = $model->full_name.'\'s'.' Profile';
-//$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'User Profiles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php 
+    <?php
     if($model->profile_picture == NULL){
         echo '<div class="im" style="padding-bottom:2px; margin: 0 auto;">';
         echo '<img src="images/aw.png" width="190px">';
